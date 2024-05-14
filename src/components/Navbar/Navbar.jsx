@@ -1,7 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [checkMenu, setCheckMenu] = useState(false);
+  const [checkScrollY, setCheckScrollY] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", (e) => {
+      if (e.currentTarget.scrollY >= 31) {
+        setCheckScrollY(true);
+      } else {
+        setCheckScrollY(false);
+      }
+    });
+  }, []);
   function openMenu() {
     if (innerWidth <= 1024) setCheckMenu(!checkMenu);
     else setCheckMenu(false);
@@ -11,53 +21,83 @@ export default function Navbar() {
   }
   return (
     <>
-      <header className=" bg-[rgb(44,62,80)] py-[40px] fixed w-full">
-        <div className="container flex justify-between items-center text-white">
-          <h1 className="text-2xl lg:text-3xl transition-all duration-100 ">
-            {`StartFramework`.toUpperCase()}
-          </h1>
-          <nav>
-            <ul className=" gap-10 hidden lg:flex font-semibold text-lg list-none uppercase">
-              <li>
+      <header className="fixed w-full z-40">
+        <div className="desktop-menu bg-main-color">
+          <div
+            className={`container py-[40px]  flex justify-between items-center text-white overflow-hidden transition-all duration-75 ${
+              checkScrollY ? "h-[75px]" : "h-[120px]"
+            }`}
+          >
+            <h1 className="text-2xl lg:text-3xl transition-all duration-75 font-semibold">
+              {`StartFramework`.toUpperCase()}
+            </h1>
+            <nav>
+              <ul className=" gap-10 hidden lg:flex font-semibold text-lg list-none uppercase">
+                <li>
+                  <a href="#">About</a>
+                </li>
+                <li>
+                  <a href="#">Portfolio</a>
+                </li>
+                <li>
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          {/* Hamburger Menu */}
+          <div
+            onClick={openMenu}
+            tabIndex={1}
+            className={`hamburger bg-main-color absolute  right-[60px] sm:right-[100px] md:right-28 flex flex-col  gap-[8px] outline outline-[#243544] p-[10px] rounded-sm cursor-pointer lg:hidden focus:outline-black focus:outline-4 transition-all duration-150 ${
+              checkScrollY ? "top-[18px] " : "top-8"
+            }`}
+          >
+            <span className="bg-hamburger w-[40px] h-[3px]"></span>
+            <span className="bg-hamburger w-[40px] h-[3px]"></span>
+            <span className="bg-hamburger w-[40px] h-[3px]"></span>
+          </div>
+        </div>
+        {/* Mobile Nav */}
+        <div className="mobile-menu  bg-main-color">
+          <nav
+            className={`animate-menu bg-main-color w-full fixed text-center -z-50 text-white ${
+              checkMenu ? "block" : "hidden "
+            } `}
+          >
+            <ul className="container flex flex-col items-start sm:px-12 md:px-14 gap-[20px] font-semibold text-lg list-none uppercase lg:hidden pb-2.5">
+              <li onClick={hideMenu}>
                 <a href="#">About</a>
               </li>
-              <li>
+              <li onClick={hideMenu}>
                 <a href="#">Portfolio</a>
               </li>
-              <li>
+              <li onClick={hideMenu}>
                 <a href="#">Contact</a>
               </li>
             </ul>
           </nav>
         </div>
-        <div
-          onClick={openMenu}
-          tabIndex={1}
-          className="hamburger bg-[rgb(44,62,80)] absolute top-[40px] right-6 md:right-20 flex flex-col gap-[8px] outline outline-[#243544] p-[10px] rounded-sm cursor-pointer lg:hidden focus:outline-black focus:outline-4"
-        >
-          <span className="bg-[#232B34] w-[40px] h-[3px]"></span>
-          <span className="bg-[#232B34] w-[40px] h-[3px]"></span>
-          <span className="bg-[#232B34] w-[40px] h-[3px]"></span>
-        </div>
-
-        <nav
-          className={`menu-nav text-center mt-6 text-white ${
-            checkMenu ? "block" : "hidden"
-          }`}
-        >
-          <ul className="flex flex-col items-center  px-12 gap-[20px] font-semibold text-lg list-none uppercase lg:hidden">
-            <li onClick={hideMenu}>
-              <a href="#">About</a>
-            </li>
-            <li onClick={hideMenu}>
-              <a href="#">Portfolio</a>
-            </li>
-            <li onClick={hideMenu}>
-              <a href="#">Contact</a>
-            </li>
-          </ul>
-        </nav>
       </header>
     </>
   );
+}
+{
+  /* <nav
+        className={`change-bg-menu menu-nav fixed text-center  text-white ${
+          checkMenu ? "block" : "hidden "
+        } `}
+      >
+        <ul className=" flex flex-col items-center  px-12 gap-[20px] font-semibold text-lg list-none uppercase lg:hidden ">
+          <li onClick={hideMenu}>
+            <a href="#">About</a>
+          </li>
+          <li onClick={hideMenu}>
+            <a href="#">Portfolio</a>
+          </li>
+          <li onClick={hideMenu}>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </nav> */
 }

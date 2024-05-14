@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      colors: {
+        "main-color": "rgb(44,62,80)",
+        hamburger: "#232B34",
+      },
       container: {
         center: true,
         padding: {

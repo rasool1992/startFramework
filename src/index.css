@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes animate-mobile-menu {
+  from {
+    transform: translateY(-100%);
+  }
+
+  ,
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-menu {
+  animation: animate-mobile-menu 300ms;
+}
