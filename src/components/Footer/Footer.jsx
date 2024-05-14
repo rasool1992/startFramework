@@ -1,16 +1,20 @@
 export default function Footer() {
   return (
     <>
-      <footer className="bg-main-color flex flex-col justify-between text-white ">
+      <footer className="bg-main-color flex flex-col justify-between text-white pt-7">
         <div className="container flex items-center h-full py-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 text-center ">
             <section className="location flex flex-col gap-2 ">
-              <h3 className="text-center text-2xl">LOCATION</h3>
+              <h3 className="text-center text-2xl font-semibold">
+                {`Location`.toUpperCase()}
+              </h3>
               <p className="text-lg">2215 John Daniel Drive</p>
               <p className="text-lg">Clark, MO 65243</p>
             </section>
             <section className="social-media flex flex-col gap-2">
-              <h3 className="text-center text-2xl">AROUND THE WEB</h3>
+              <h3 className="text-center text-2xl font-semibold">
+                {`around the web`.toUpperCase()}
+              </h3>
               <div className="social-icons flex justify-center items-center gap-2">
                 {/* Facebook SVG from Bootsrap Website */}
                 <span className="facebook rounded-full  border-2 border-white p-1.5">
@@ -66,7 +70,9 @@ export default function Footer() {
               </div>
             </section>
             <section className="about-free-lancer">
-              <h3 className="text-center text-2xl">ABOUT FREELANCER</h3>
+              <h3 className="text-center text-2xl font-semibold">
+                {`About FreeLancer`.toUpperCase()}
+              </h3>
               <p className="text-lg px-6">
                 Freelance is a free to use, licensed Bootstrap theme created by
                 Route

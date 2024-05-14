@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const [checkMenu, setCheckMenu] = useState(false);
@@ -29,7 +30,7 @@ export default function Navbar() {
             }`}
           >
             <h1 className="text-2xl lg:text-3xl transition-all duration-75 font-semibold">
-              {`StartFramework`.toUpperCase()}
+              <Link to="">{`StartFramework`.toUpperCase()}</Link>
             </h1>
             <nav>
               <ul className=" gap-10 hidden lg:flex font-semibold text-lg list-none uppercase">
@@ -67,13 +68,13 @@ export default function Navbar() {
           >
             <ul className="container flex flex-col items-start sm:px-12 md:px-14 gap-[20px] font-semibold text-lg list-none uppercase lg:hidden pb-2.5">
               <li onClick={hideMenu}>
-                <a href="#">About</a>
+                <NavLink to="about">About</NavLink>
               </li>
               <li onClick={hideMenu}>
-                <a href="#">Portfolio</a>
+                <NavLink to="portfolio">Portfolio</NavLink>
               </li>
               <li onClick={hideMenu}>
-                <a href="#">Contact</a>
+                <NavLink to="contact">Contact</NavLink>
               </li>
             </ul>
           </nav>
@@ -81,23 +82,4 @@ export default function Navbar() {
       </header>
     </>
   );
-}
-{
-  /* <nav
-        className={`change-bg-menu menu-nav fixed text-center  text-white ${
-          checkMenu ? "block" : "hidden "
-        } `}
-      >
-        <ul className=" flex flex-col items-center  px-12 gap-[20px] font-semibold text-lg list-none uppercase lg:hidden ">
-          <li onClick={hideMenu}>
-            <a href="#">About</a>
-          </li>
-          <li onClick={hideMenu}>
-            <a href="#">Portfolio</a>
-          </li>
-          <li onClick={hideMenu}>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-      </nav> */
 }
