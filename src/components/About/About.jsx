@@ -1,7 +1,5 @@
 import SpecialLine from "../SpecialLine/SpecialLine";
 export default function About() {
-  const specialLineColor = "white";
-
   return (
     <>
       <main className=" pt-11 pb-11  bg-[#15BC9C] text-white text-left ">
@@ -9,7 +7,7 @@ export default function About() {
           <h2 className="text-3xl font-bold text-center">
             {`about`.toUpperCase()}
           </h2>
-          <SpecialLine specialLineColor={specialLineColor} />
+          <SpecialLine textColor="text-white" bgColor="bg-white" fill="#fff" />
           <p className="pt-4">
             Freelancer is a free bootstrap theme created by Route. The download
             includes the complete source files including HTML, CSS, and

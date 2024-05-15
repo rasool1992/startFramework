@@ -1,8 +1,6 @@
 import SpecialLine from "../SpecialLine/SpecialLine";
 
 function Home() {
-  const specialLineColor = "white";
-
   return (
     <>
       <main className="pt-8 pb-10  bg-[#15BC9C] text-white text-center ">
@@ -14,7 +12,7 @@ function Home() {
           />
         </div>
         <h2 className="text-3xl ">START FRAMEWORK</h2>
-        <SpecialLine specialLineColor={specialLineColor} />
+        <SpecialLine textColor="text-white" bgColor="bg-white" fill="#fff" />
         <p>Graphic Artist - Web Designer - Illustrator</p>
       </main>
     </>

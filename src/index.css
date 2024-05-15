@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.active {
+  @apply bg-[#1abc9ce6] p-2 -m-2 rounded-md;
+}
+.animate-menu {
+  animation: animate-mobile-menu 300ms;
+}
+
+.animate-input-label {
+}
+
 @keyframes animate-mobile-menu {
   from {
     transform: translateY(-100%);
@@ -13,6 +23,13 @@
   }
 }
 
-.animate-menu {
-  animation: animate-mobile-menu 300ms;
+@keyframes animate-input {
+  from {
+    transform: translateY(-100%);
+  }
+
+  ,
+  to {
+    transform: translateY(0);
+  }
 }

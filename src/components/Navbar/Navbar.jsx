@@ -30,18 +30,20 @@ export default function Navbar() {
             }`}
           >
             <h1 className="text-2xl lg:text-3xl transition-all duration-75 font-semibold">
-              <Link to="">{`StartFramework`.toUpperCase()}</Link>
+              <Link to="" onClick={hideMenu}>
+                {`StartFramework`.toUpperCase()}
+              </Link>
             </h1>
             <nav>
-              <ul className=" gap-10 hidden lg:flex font-semibold text-lg list-none uppercase">
+              <ul className=" gap-10 hidden lg:flex font-semibold text-lg list-none uppercase ">
                 <li>
-                  <a href="#">About</a>
+                  <NavLink to="about">About</NavLink>
                 </li>
                 <li>
-                  <a href="#">Portfolio</a>
+                  <NavLink to="portfolio">Portfolio</NavLink>
                 </li>
                 <li>
-                  <a href="#">Contact</a>
+                  <NavLink to="contact">Contact</NavLink>
                 </li>
               </ul>
             </nav>
@@ -50,7 +52,7 @@ export default function Navbar() {
           <div
             onClick={openMenu}
             tabIndex={1}
-            className={`hamburger bg-main-color absolute  right-[60px] sm:right-[100px] md:right-28 flex flex-col  gap-[8px] outline outline-[#243544] p-[10px] rounded-sm cursor-pointer lg:hidden focus:outline-black focus:outline-4 transition-all duration-150 ${
+            className={`hamburger bg-main-color absolute  right-[60px] sm:right-[100px] md:right-28 flex flex-col  gap-[8px] outline outline-[#243544] p-[10px] rounded-sm cursor-pointer lg:hidden focus:outline-black  focus:outline-4 transition-all duration-150 ${
               checkScrollY ? "top-[18px] " : "top-8"
             }`}
           >
@@ -66,7 +68,7 @@ export default function Navbar() {
               checkMenu ? "block" : "hidden "
             } `}
           >
-            <ul className="container flex flex-col items-start sm:px-12 md:px-14 gap-[20px] font-semibold text-lg list-none uppercase lg:hidden pb-2.5">
+            <ul className="container flex flex-col items-start sm:px-12 md:px-14 gap-[20px] font-semibold text-lg list-none uppercase lg:hidden pb-4 pt-2">
               <li onClick={hideMenu}>
                 <NavLink to="about">About</NavLink>
               </li>
